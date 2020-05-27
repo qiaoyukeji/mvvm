@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: qiaoyurensheng@163.com
+ * @Date: 2020-05-27 14:57:35
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-05-27 21:02:48
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p v-test="msg"></p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello world",
+                info: {
+                    a: "111"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

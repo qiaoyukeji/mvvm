@@ -4,8 +4,11 @@
  * @Author: qiaoyurensheng@163.com
  * @Date: 2020-05-27 17:06:54
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-05-27 17:33:18
+ * @LastEditTime: 2020-05-27 23:34:01
  */
+
+import Dep from "./dep";
+
 // 完成数据劫持
 export default class Observer {
     constructor(data) {
@@ -36,13 +39,15 @@ export default class Observer {
      * @return: 
      */
     defineReactive(data, key, value) {
+        let dep = new Dep()
         Object.defineProperty(data, key, {
             // 可遍历的
             enumerable: true,
             // 不可再配置
             configurable: false,
             get: () => {
-                console.log("get");
+                // console.log("get");
+                Dep.target && dep.addSub(Dep.target)
 
                 return value
             },
@@ -50,6 +55,7 @@ export default class Observer {
                 console.log("set");
                 value = newValue
                 // todo 触发 view页面的变化
+                dep.notify()
             }
         })
         this.walk(value)

@@ -7,7 +7,7 @@ import Compiler from "./compiler";
  * @Author: qiaoyurensheng@163.com
  * @Date: 2020-05-27 15:01:23
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-05-27 17:42:40
+ * @LastEditTime: 2020-05-28 00:09:21
  */
 class Vue {
     constructor(options) {
@@ -20,6 +20,7 @@ class Vue {
 
         // 数据和函数的代理
         this._proxyData(this.$data)
+        this._proxyMethods(options.methods)
 
         // 数据劫持
         new Observer(this.$data)

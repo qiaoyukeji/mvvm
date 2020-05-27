@@ -4,7 +4,7 @@
  * @Author: qiaoyurensheng@163.com
  * @Date: 2020-05-27 14:57:35
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-05-27 21:02:48
+ * @LastEditTime: 2020-05-28 00:05:21
 -->
 <!DOCTYPE html>
 <html lang="zh">
@@ -18,8 +18,10 @@
 
 <body>
     <div id="app">
-        <p>{{msg}}</p>
-        <p v-test="msg"></p>
+        <p>1{{msg+"2"}}3</p>
+        <p v-text="msg"></p>
+        <input v-model="msg" type="text" name="" id="">
+        <button @click="handleClick">点击</button>
     </div>
     <script>
         var vm = new Vue({
@@ -28,6 +30,11 @@
                 msg: "hello world",
                 info: {
                     a: "111"
+                }
+            }, methods: {
+                handleClick: function () {
+                    console.log("点击了click", this.msg);
+
                 }
             }
         })
